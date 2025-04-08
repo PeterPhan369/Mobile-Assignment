@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Blur Background (can use renderScript for blur or static image) -->
+    <View
+        android:layout_width="1319dp"
+        android:layout_height="684dp"
+        android:background="#7FCDFF"
+        android:alpha="0.3"
+        android:layout_marginTop="627dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:translationX="-120dp" />
+
+    <!-- Blue Login Container -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="1089dp"
+        app:cardCornerRadius="132dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="960dp"
+        android:backgroundTint="#195EB6" />
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginEnd="89dp"
+        android:hint="Email"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_white_bg"
+        android:padding="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Password Field -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginEnd="89dp"
+        android:hint="Password"
+        android:textSize="24sp"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_white_bg"
+        android:padding="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Sign In Button -->
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="811dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginStart="134dp"
+        android:backgroundTint="#73A7EA"
+        android:text="Đăng nhập"
+        android:textSize="32sp"
+        android:textColor="#002760"
+        android:fontFamily="@font/inter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
