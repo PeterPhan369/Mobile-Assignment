@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <!-- Top Banner -->
+    <ImageView
+        android:id="@+id/bannerImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_school_banner"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Center Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_school_logo"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toBottomOf="@id/bannerImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Login Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#002760"
+        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="48dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Email"
+                android:textColor="#444444"
+                android:textSize="18sp"
+                android:background="@drawable/bg_rounded_input"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="16dp"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:hint="Mã số cá nhân"
+                android:textColor="#444444"
+                android:textSize="18sp"
+                android:background="@drawable/bg_rounded_input"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="16dp"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/signInButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Đăng nhập"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_rounded"
+                android:textColor="#002760"
+                android:fontFamily="@font/inter" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
