@@ -1,5 +1,6 @@
 package com.example.mobileassignment
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,11 @@ class SignInActivity : AppCompatActivity() {
             } else {
                 // Future: Integrate with backend login API
                 Toast.makeText(this, "Đăng nhập thành công với: $email", Toast.LENGTH_SHORT).show()
+
+                // Navigate to MainActivity after successful sign-in
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish() // Close SignInActivity so user can't go back with back button
             }
         }
     }
