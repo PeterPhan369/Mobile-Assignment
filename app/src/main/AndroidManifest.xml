@@ -14,16 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAssignment"
-        tools:targetApi="31"> {/* If you added this based on a suggestion and don't need it, you can remove tools:targetApi="31" as well */}
+        tools:targetApi="31">
 
         <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.MobileAssignment">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
 
         <activity
