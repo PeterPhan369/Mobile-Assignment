@@ -56,9 +56,10 @@
         </FrameLayout>
 
         <Button
+            android:id="@+id/btn_3d_object"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="TÌM HÌNH ẢNH"
+            android:text="3D OBJECT"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:background="#1976D2" />

@@ -1,38 +1,39 @@
 package com.example.mobileassignment
 
-import android.Manifest // Import Manifest
+import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri // Import Uri
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.rememberLauncherForActivityResult // Import
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts // Import
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.* // Import layout.*
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.* // Import runtime.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext // Import LocalContext
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat // Import ContextCompat
-import androidx.core.content.FileProvider // Import FileProvider
-import coil.compose.rememberAsyncImagePainter // Import Coil painter
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import coil.compose.rememberAsyncImagePainter
 import com.example.mobileassignment.ui.theme.MobileAssignmentTheme
 import java.io.File
 import java.text.SimpleDateFormat
@@ -74,7 +75,6 @@ fun Context.createImageUri(): Uri {
     )
 }
 
-
 @Composable
 fun VietnameseAppScreen() {
     val context = LocalContext.current
@@ -89,7 +89,6 @@ fun VietnameseAppScreen() {
 
     // State to track which button's image should be updated
     var targetImageSetter by remember { mutableStateOf<((Uri?) -> Unit)?>(null) }
-
 
     // Launcher for taking a picture
     val cameraLauncher = rememberLauncherForActivityResult(
@@ -144,7 +143,6 @@ fun VietnameseAppScreen() {
         }
     }
 
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -167,12 +165,12 @@ fun VietnameseAppScreen() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Second option: Find Images
-            OptionCard(
-                buttonText = "TÌM HÌNH ẢNH",
-                imageUri = imageUriImage,      // Pass the state URI
-                onButtonClick = {              // Pass the launch function
-                    checkAndLaunchCamera { uri -> imageUriImage = uri }
+            // Second option: 3D Object (replaced "TÌM HÌNH ẢNH")
+            ThreeDObjectCard(
+                onButtonClick = {
+                    // Launch the 3D object activity
+                    val intent = Intent(context, Object3DActivity::class.java)
+                    context.startActivity(intent)
                 }
             )
         }
@@ -241,6 +239,50 @@ fun OptionCard(
         ) {
             Text(
                 text = buttonText,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Composable
+fun ThreeDObjectCard(
+    onButtonClick: () -> Unit
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        // 3D Object preview placeholder
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
+                .background(Color(0xFF90CAF9)), // Light blue background
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "3D Vase Preview",
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
+        // Button - triggers the 3D activity
+        Button(
+            onClick = onButtonClick,
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1976D2)), // Blue color
+            shape = RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+        ) {
+            Text(
+                text = "3D OBJECT",
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,

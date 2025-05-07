@@ -31,6 +31,10 @@
             android:theme="@style/Theme.MobileAssignment">
         </activity>
 
+        <activity
+            android:name=".Object3DActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
